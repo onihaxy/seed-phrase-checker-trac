@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seed Phrase Checker - Trac Network</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .logo { font-size: 13px; color: #ff6b00; letter-spacing: 4px; margin-bottom: 10px; }
+    h1 { font-size: 24px; color: #ff6b00; margin-bottom: 5px; text-align: center; }
+    .subtitle { font-size: 11px; color: #555; margin-bottom: 30px; letter-spacing: 2px; text-align: center; }
+    .box {
+      background: #111;
+      border: 2px solid #ff6b00;
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 40px rgba(255,107,0,0.15);
+    }
+    .warning {
+      background: #1a1000;
+      border: 1px solid #ff6b00;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 11px;
+      color: #ff6b00;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    label { font-size: 12px; color: #888; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+    textarea {
+      width: 100%;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      padding: 15px;
+      resize: none;
+      height: 100px;
+      outline: none;
+      transition: border 0.3s;
+    }
+    textarea:focus { border-color: #ff6b00; }
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: #ff6b00;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #ff8c00; }
+    .clear-btn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      background: #1a1a1a;
+      color: #777;
+      border: 1px solid #333;
+      border-radius: 10px;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+    .clear-btn:hover { background: #222; }
+    .results { margin-top: 30px; display: none; }
+    .score-box {
+      text-align: center;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .score-box.weak { background: #1a0000; border: 2px solid #ff3333; }
+    .score-box.medium { background: #1a1000; border: 2px solid #ffaa00; }
+    .score-box.strong { background: #001a00; border: 2px solid #00ff88; }
+    .score-label { font-size: 11px; letter-spacing: 3px; margin-bottom: 8px; }
+    .score-label.weak { color: #ff3333; }
+    .score-label.medium { color: #ffaa00; }
+    .score-label.strong { color: #00ff88; }
+    .score-number { font-size: 60px; font-weight: bold; }
+    .score-number.weak { color: #ff3333; }
+    .score-number.medium { color: #ffaa00; }
+    .score-number.strong { color: #00ff88; }
+    .score-text { font-size: 11px; color: #777; margin-top: 5px; }
+    .checks { list-style: none; }
+    .checks li {
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .checks li.pass { background: #001a00; color: #00ff88; border: 1px solid #00ff8833; }
+    .checks li.fail { background: #1a0000; color: #ff3333; border: 1px solid #ff333333; }
+    .checks li.warn { background: #1a1000; color: #ffaa00; border: 1px solid #ffaa0033; }
+    .footer { margin-top: 30px; font-size: 10px; color: #333; letter-spacing: 2px; text-align: center; }
+    .footer a { color: #ff6b00; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="logo">⬡ TRAC NETWORK</div>
+  <h1>🔐 Seed Phrase Checker</h1>
+  <p class="subtitle">BUILT ON INTERCOMSWAP · CHECK YOUR WALLET SECURITY</p>
+
+  <div class="box">
+    <div class="warning">
+      ⚠️ 100% LOCAL — Your seed phrase is NEVER sent anywhere. All checks run in your browser only.
+    </div>
+
+    <label>ENTER YOUR SEED PHRASE</label>
+    <textarea id="seedInput" placeholder="Enter your 12, 18, or 24 word seed phrase here..."></textarea>
+
+    <button class="btn" onclick="checkSeedPhrase()">CHECK STRENGTH</button>
+    <button class="clear-btn" onclick="clearAll()">CLEAR</button>
+
+    <div class="results" id="results">
+      <div class="score-box" id="scoreBox">
+        <div class="score-label" id="scoreLabel">SCORE</div>
+        <div class="score-number" id="scoreNumber">0</div>
+        <div class="score-text" id="scoreText"></div>
+      </div>
+      <ul class="checks" id="checkList"></ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Seed Phrase Checker · <a href="https://github.com/Trac-Systems/intercom-swap" target="_blank">IntercomSwap</a> · Trac Network
+  </div>
+
+  <script>
+    const COMMON_WORDS = ["abandon","ability","able","about","above","absent","absorb","abstract","absurd","abuse","access","accident","account","accuse","achieve","acid","acoustic","acquire","across","act","action","actor","actress","actual","adapt","add","addict","address","adjust","admit","adult","advance","advice","aerobic","afford","afraid","again","age","agent","agree","ahead","aim","air","airport","aisle","alarm","album","alcohol","alert","alien","all","alley","allow","almost","alone","alpha","already","also","alter","always","amateur","amazing","among","amount","amused","analyst","anchor","ancient","anger","angle","angry","animal","ankle","announce","annual","another","answer","antenna","antique","anxiety","any","apart","apology","appear","apple","approve","april","arch","arctic","area","arena","argue","arm","armed","armor","army","around","arrange","arrest","arrive","arrow","art","artefact","artist","artwork","ask","aspect","assault","asset","assist","assume","asthma","athlete","atom","attack","attend","attitude","attract","auction","audit","august","aunt","author","auto","autumn","average","avocado","avoid","awake","aware","away","awesome","awful","awkward","axis"];
+
+    function checkSeedPhrase() {
+      const input = document.getElementById('seedInput').value.trim();
+      const words = input.toLowerCase().split(/\s+/).filter(w => w.length > 0);
+      const results = document.getElementById('results');
+      const checkList = document.getElementById('checkList');
+      const scoreBox = document.getElementById('scoreBox');
+      const scoreLabel = document.getElementById('scoreLabel');
+      const scoreNumber = document.getElementById('scoreNumber');
+      const scoreText = document.getElementById('scoreText');
+
+      if (words.length === 0) {
+        alert('Please enter a seed phrase first!');
+        return;
+      }
+
+      checkList.innerHTML = '';
+      let score = 0;
+      let checks = [];
+
+      // Check 1: Word count
+      if (words.length === 12 || words.length === 18 || words.length === 24) {
+        score += 30;
+        checks.push({ status: 'pass', text: `✅ Word count is ${words.length} — Valid (12, 18, or 24 words)` });
+      } else if (words.length < 12) {
+        checks.push({ status: 'fail', text: `❌ Only ${words.length} words — Too short! Need at least 12` });
+      } else {
+        checks.push({ status: 'warn', text: `⚠️ ${words.length} words — Unusual count. Use 12, 18, or 24` });
+        score += 10;
+      }
+
+      // Check 2: No duplicate words
+      const unique = new Set(words);
+      if (unique.size === words.length) {
+        score += 25;
+        checks.push({ status: 'pass', text: '✅ No duplicate words found — Good!' });
+      } else {
+        checks.push({ status: 'fail', text: `❌ Duplicate words found — Weak phrase!` });
+      }
+
+      // Check 3: No numbers
+      const hasNumbers = words.some(w => /\d/.test(w));
+      if (!hasNumbers) {
+        score += 20;
+        checks.push({ status: 'pass', text: '✅ No numbers in phrase — Correct format!' });
+      } else {
+        checks.push({ status: 'fail', text: '❌ Numbers found — Seed phrases should only have words!' });
+      }
+
+      // Check 4: All lowercase
+      const allLower = words.every(w => w === w.toLowerCase());
+      if (allLower) {
+        score += 10;
+        checks.push({ status: 'pass', text: '✅ All words are lowercase — Correct!' });
+      } else {
+        checks.push({ status: 'warn', text: '⚠️ Some words have capitals — Should be lowercase' });
+      }
+
+      // Check 5: No common simple words
+      const obviousWords = ['password', 'crypto', 'bitcoin', 'wallet', 'trac', 'secret', 'hello', 'test'];
+      const hasObvious = words.some(w => obviousWords.includes(w));
+      if (!hasObvious) {
+        score += 15;
+        checks.push({ status: 'pass', text: '✅ No obvious/common words detected — Good!' });
+      } else {
+        checks.push({ status: 'fail', text: '❌ Obvious words detected — Very weak phrase!' });
+      }
+
+      // Determine strength
+      let strength, cls;
+      if (score >= 80) { strength = 'STRONG 💪'; cls = 'strong'; scoreText.textContent = 'Your seed phrase looks secure!'; }
+      else if (score >= 50) { strength = 'MEDIUM ⚠️'; cls = 'medium'; scoreText.textContent = 'Could be stronger. Review the checks below.'; }
+      else { strength = 'WEAK ❌'; cls = 'weak'; scoreText.textContent = 'This phrase has serious issues. Do not use it!'; }
+
+      scoreBox.className = `score-box ${cls}`;
+      scoreLabel.className = `score-label ${cls}`;
+      scoreNumber.className = `score-number ${cls}`;
+      scoreLabel.textContent = strength;
+      scoreNumber.textContent = score;
+
+      checks.forEach(c => {
+        const li = document.createElement('li');
+        li.className = `checks ${c.status}`;
+        li.textContent = c.text;
+        checkList.appendChild(li);
+      });
+
+      results.style.display = 'block';
+    }
+
+    function clearAll() {
+      document.getElementById('seedInput').value = '';
+      document.getElementById('results').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
