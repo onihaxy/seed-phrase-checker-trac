@@ -105,6 +105,7 @@ npm test
 ---
 
 ## 🔗 Trac Address
+```bash
 `trac1q5r79wn6lc4p3x4desyjw8rna0ml6pakz873vt7r9ary7qlwvgdqwx24d0`
 
 ---
