@@ -1,3 +1,5 @@
+// updated
+```
 // Seed Phrase Checker - Validation Contract Rules
 // Built on IntercomSwap - Trac Network
 
