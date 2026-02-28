@@ -23,8 +23,8 @@ Then open: http://localhost:3000
 
 ## Screenshots
 ![Repo Files](mainrepo.png)
-![Trac Address](screenshot2.png)
-![Timer Code](screenshot3.png)
+![Trac Address](tracaddress.png)
+![Timer Code](index.html.png)
 
 ## Trac Address
 0x354E423FB0Cf2C232D39b1e778D9C22af2942789
