@@ -3,19 +3,15 @@
 A TRAC-themed Seed Phrase Strength Checker built on IntercomSwap.
 Check your crypto wallet seed phrase security — 100% locally, nothing sent anywhere.
 
-![App Homepage](screenshots/homepage.png)
-![App Results](screenshots/results.png)
-
----
-
-## 🔗 Trac Address
-```bash
-`trac1q5r79wn6lc4p3x4desyjw8rna0ml6pakz873vt7r9ary7qlwvgdqwx24d0`
-
 ---
 
 ## 🌐 Live Demo
 👉 https://onihaxy.github.io/seed-phrase-checker-trac
+
+---
+
+## 🔗 Trac Address
+`trac1q5r79wn6lc4p3x4desyjw8rna0ml6pakz873vt7r9ary7qlwvgdqwx24d0`
 
 ---
 
@@ -44,33 +40,33 @@ Check your crypto wallet seed phrase security — 100% locally, nothing sent any
 ```
 seed-phrase-checker-trac/
 ├── src/
-│   ├── checker.ts      ← Core TypeScript logic
-│   ├── types.ts        ← TypeScript interfaces
-│   ├── wordlist.ts     ← BIP39 wordlist
-│   └── app.js          ← Frontend logic
+│   ├── checker.ts
+│   ├── types.ts
+│   ├── wordlist.ts
+│   └── app.js
 ├── rust/
-│   ├── Cargo.toml      ← Rust config
-│   └── src/main.rs     ← Rust validator
+│   ├── Cargo.toml
+│   └── src/main.rs
 ├── python/
-│   ├── wordlist.py     ← Python wordlist tool
-│   └── generate_wordlist.py ← Wordlist generator
+│   ├── wordlist.py
+│   └── generate_wordlist.py
 ├── styles/
-│   └── main.css        ← Stylesheet
+│   └── main.css
 ├── test/
-│   └── test.ts         ← TypeScript tests
+│   └── test.ts
 ├── scripts/
-│   └── run.sh          ← Run script
+│   └── run.sh
 ├── features/
-│   └── roadmap.md      ← Feature roadmap
+│   └── roadmap.md
 ├── dev/
-│   └── notes.md        ← Developer notes
-├── screenshots/        ← App screenshots
-├── index.html          ← Main UI
-├── server.ts           ← TypeScript server
-├── package.json        ← Dependencies
-├── tsconfig.json       ← TypeScript config
-├── SKILL.md            ← Agent skill file
-├── LICENSE.md          ← MIT License
+│   └── notes.md
+├── screenshots/
+├── index.html
+├── server.ts
+├── package.json
+├── tsconfig.json
+├── SKILL.md
+├── LICENSE.md
 └── .gitignore
 ```
 
@@ -83,11 +79,15 @@ npm start
 ```
 Then open: http://localhost:3000
 
+---
+
 ## 🦀 Run Rust Engine
 ```bash
 cd rust
 cargo run
 ```
+
+---
 
 ## 🐍 Run Python Tools
 ```bash
@@ -96,6 +96,8 @@ python wordlist.py
 python generate_wordlist.py
 ```
 
+---
+
 ## 🧪 Run Tests
 ```bash
 npm test
@@ -103,20 +105,20 @@ npm test
 
 ---
 
+
 ## 📸 Screenshots
 ![App Homepage](screenshots/homepage.png)
-![App Results](screenshots/results.png)                
-## 📄 License
-MIT — Fork freely, build on top, win together.
-
-
+![App Results](screenshots/results.png)
 
 ---
 
-
-
- ## 🏆 Competition Entry
+## 🏆 Competition Entry
 - Fork of: https://github.com/Trac-Systems/intercom-swap
 - Built for: Intercom Vibe Competition
 - Category: IntercomSwap Fork
+- Live Demo: https://onihaxy.github.io/seed-phrase-checker-trac
 
+---
+
+## 📄 License
+MIT — Fork freely, build on top, win together.
