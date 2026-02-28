@@ -6,8 +6,12 @@ Check your crypto wallet seed phrase security — 100% locally, nothing sent any
 ![App Homepage](screenshots/homepage.png)
 ![App Results](screenshots/results.png)
 
+---
+
 ## 🌐 Live Demo
 👉 https://onihaxy.github.io/seed-phrase-checker-trac
+
+---
 
 ## ✨ Features
 - 🔐 Checks seed phrase strength
@@ -18,6 +22,8 @@ Check your crypto wallet seed phrase security — 100% locally, nothing sent any
 - 🔎 BIP39 wordlist validation
 - ⚡ 100% runs in browser — no data sent anywhere
 
+---
+
 ## 🛠 Tech Stack
 - **TypeScript** — Core checking logic
 - **Rust** — Fast validation engine
@@ -25,6 +31,8 @@ Check your crypto wallet seed phrase security — 100% locally, nothing sent any
 - **JavaScript** — Frontend app logic
 - **CSS** — Separate stylesheet
 - **Node.js + Express** — Server
+
+---
 
 ## 📁 Project Structure
 ```
@@ -60,6 +68,8 @@ seed-phrase-checker-trac/
 └── .gitignore
 ```
 
+---
+
 ## 🚀 How To Run
 ```bash
 npm install
@@ -85,18 +95,24 @@ python generate_wordlist.py
 npm test
 ```
 
+---
+
 ## 📸 Screenshots
 ![App Homepage](screenshots/homepage.png)
 ![App Results](screenshots/results.png)
 
+
+---
+
 ## 🔗 Trac Address
 `trac1q5r79wn6lc4p3x4desyjw8rna0ml6pakz873vt7r9ary7qlwvgdqwx24d0`
+
+---
 
 ## 🏆 Competition Entry
 - Fork of: https://github.com/Trac-Systems/intercom-swap
 - Built for: Intercom Vibe Competition
 - Category: IntercomSwap Fork
-- Live Demo: https://onihaxy.github.io/seed-phrase-checker-trac
 
 ## 📄 License
 MIT — Fork freely, build on top, win together.
