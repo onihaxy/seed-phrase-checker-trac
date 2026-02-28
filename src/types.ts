@@ -1,3 +1,4 @@
+// updated
 // Seed Phrase Checker - TypeScript Types
 // Built on IntercomSwap - Trac Network
 
