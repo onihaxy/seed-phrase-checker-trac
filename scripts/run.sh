@@ -1,3 +1,5 @@
+# updated
+```
 #!/bin/bash
 
 # Seed Phrase Checker - Run Script
