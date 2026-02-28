@@ -1,3 +1,4 @@
+# updated
 # Seed Phrase Checker - Python Wordlist Tool
 # Built on IntercomSwap - Trac Network
 
