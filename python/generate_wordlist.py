@@ -1,3 +1,4 @@
+# updated
 # Seed Phrase Checker - Wordlist Generator
 # Built on IntercomSwap - Trac Network
 
