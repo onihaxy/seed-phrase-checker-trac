@@ -82,10 +82,10 @@ seed-phrase-checker-trac/
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js v18+
-- npm v9+
-- Rust (optional)
-- Python 3.8+ (optional)
+- Node.js v22+
+- npm v10+
+- Rust 1.85+
+- Python 3.14.3+ (optional)
 
 ### Installation
 ```bash
