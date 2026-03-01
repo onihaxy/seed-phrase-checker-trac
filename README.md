@@ -1,3 +1,4 @@
+<!-- v1.0.0 -->
 # 🔐 Seed Phrase Checker - Trac Network
 
 A TRAC-themed Seed Phrase Strength Checker built on IntercomSwap.
@@ -69,7 +70,6 @@ seed-phrase-checker-trac/
 │   └── roadmap.md
 ├── dev/
 │   └── notes.md
-├── screenshots/
 ├── index.html
 ├── server.ts
 ├── package.json
@@ -111,13 +111,6 @@ python generate_wordlist.py
 ```bash
 npm test
 ```
-
----
-
-
-## 📸 Screenshots
-![App Homepage](screenshots/homepage.png)
-![App Results](screenshots/results.png)
 
 ---
 
