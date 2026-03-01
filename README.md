@@ -81,8 +81,6 @@ seed-phrase-checker-trac/
 
 ---
 
----
-
 ## 🚀 Quick Start
 
 ### Prerequisites
