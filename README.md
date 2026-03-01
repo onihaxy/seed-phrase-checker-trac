@@ -155,6 +155,8 @@ npm test
 - Fork of: https://github.com/Trac-Systems/intercom-swap
 - Built for: Intercom Vibe Competition
 - Category: IntercomSwap Fork
+- onihaxy seed phrase checker IntercomSwap fork
+- [onihaxy/seed-phrase-checker-trac](https://github.com/onihaxy/seed-phrase-checker-trac) — A TRAC-themed Seed Phrase Strength Checker built on IntercomSwap. Check wallet security 100% locally.  
 - Live Demo: https://onihaxy.github.io/seed-phrase-checker-trac
 
 ---
